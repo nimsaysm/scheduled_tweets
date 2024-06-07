@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
 
+  post "/auth/twitter2", to: "omniauth_callbacks#twitter2"
+  
   # get "/", to: "main#index"
   root to: "main#index"
 end
