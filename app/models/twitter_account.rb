@@ -1,16 +1,13 @@
 class TwitterAccount < ApplicationRecord
     belongs_to :user
     validates :username, uniqueness: true
-    
-    require "x"
-    attr_reader :client
 
-    def initialize(consumer_key:, consumer_secret:, access_token:, access_token_secret:)
-        @client = X::Client.new(
-            consumer_key: Rails.application.credentials.dig(:twitter, :client_id),
-            consumer_secret: Rails.application.credentials.dig(:twitter, :client_secret),
-            access_token: Rails.application.credentials.dig(:twitter, :access_token),
-            access_token_secret: Rails.application.credentials.dig(:twitter, :access_token_secret),
-        )
+    def client
+        Twitter::REST::Client.new do |config|
+            config.consumer_key = Rails.application.credentials.dig(:twitter, :client_id)
+            config.consumer_secret = Rails.application.credentials.dig(:twitter, :client_secret)
+            config.access_token = token
+            config.access_token_secret = secret
+        end   
     end
 end

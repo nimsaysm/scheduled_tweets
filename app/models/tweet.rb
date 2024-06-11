@@ -1,6 +1,4 @@
 class Tweet < ApplicationRecord
-  require "x"
-
   belongs_to :user
   belongs_to :twitter_account
 
@@ -15,14 +13,8 @@ class Tweet < ApplicationRecord
     tweet_id?
   end
 
-  def initialize(twitter_account)
-    @twitter_account = twitter_account
-  end
-
-  def publish_to_twitter!(text:)
-    tweet_body = { text: text }
-
-    tweet = @twitter_account.client.post("tweets", tweet_body.to_json)
-    tweet["data"]["id"]
+  def publish_to_twitter!
+    tweet = twitter_account.client.update(body)
+    update(tweet_id: tweet.id)
   end
 end
