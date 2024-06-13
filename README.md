@@ -1,24 +1,13 @@
-# README
+# Scheduled Tweets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web application that allows you to create an account, connect to Twitter accounts and schedule tweets.
 
-Things you may want to cover:
+This project was created by [Chris Oliver](https://github.com/excid3) for [GoRails](https://gorails.com).
 
-* Ruby version
 
-* System dependencies
+### Prerequisites
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [Ruby](https://www.ruby-lang.org/en/downloads/)
+- [Rails](https://rubyonrails.org/)
+- [Bundler](https://bundler.io/)
+- [Twitter Developer](https://developer.x.com/en)
