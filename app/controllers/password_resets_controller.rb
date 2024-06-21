@@ -19,7 +19,6 @@ class PasswordResetsController < ApplicationController
     end
 
     def update
-        # @user = User.find_signed!(params[:token], purpose: "password_reset")
         if User.update(password_params)
             redirect_to sign_in_path, notice: "Your password was reset successfully. Please sign in"
         else 

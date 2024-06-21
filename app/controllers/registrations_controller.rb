@@ -1,4 +1,6 @@
 class RegistrationsController < ApplicationController
+  #action new instantiates a new user, but does not save it in the database
+  #this user will be used in the view when the form is build
   def new
     @user = User.new
   end

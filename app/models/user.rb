@@ -7,7 +7,7 @@
 # password_confirmation:string
 
 class User < ApplicationRecord
-    has_many :twitter_accounts
+    has_many :twitter_accounts, dependent: :destroy
     has_many :tweets
 
     has_secure_password

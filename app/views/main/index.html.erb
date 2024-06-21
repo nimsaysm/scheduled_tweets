@@ -2,6 +2,9 @@
     <h1>Welcome to Scheduled Tweets</h1>
 </div>
 
-<%= form_tag('/auth/twitter2', method: :post, data: {turbo: "false"}) do %>
-    <button type="submit" class="btn btn-primary">Connect Twitter</button>
+<% if Current.user.nil? %>
+<% else %>
+    <%= form_tag('/auth/twitter2', method: :post, data: {turbo: "false"}) do %>
+        <button type="submit" class="btn btn-primary">Connect Twitter</button>
+    <% end %>
 <% end %>
